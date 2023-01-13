@@ -1,4 +1,5 @@
-import { Input, Radio } from 'antd';
+import { Input } from 'antd';
+import ButtonsGroup from "../ButtonsGroup";
 
 import './index.scss'
 
@@ -10,11 +11,7 @@ const ListHeader = () => {
             <div className='search'>
                 <Search  placeholder="input search text" enterButton />
             </div>
-            <Radio.Group >
-                <Radio.Button value="large">Добавить</Radio.Button>
-                <Radio.Button value="default">Изменить</Radio.Button>
-                <Radio.Button value="small">Удалить</Radio.Button>
-            </Radio.Group>
+            <ButtonsGroup/>
         </div>
     )
 }
