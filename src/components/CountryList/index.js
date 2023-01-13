@@ -1,14 +1,13 @@
-import Header from "./Header";
+import ListHeader from "./Header";
 import List from "./List";
-import Footer from "./Footer";
+import { Layout } from 'antd';
 
 const CountryList = () => {
     return (
-        <>
-            <Header/>
+        <Layout style={{ minHeight: '100vh', padding: 10 }}>
+            <ListHeader/>
             <List/>
-            <Footer/>
-        </>
+        </Layout>
     )
 }
 
