@@ -1,6 +1,8 @@
 import {useState} from "react";
+import {useSelector} from "react-redux";
 
 export const useModalButton = () => {
+    const selectedRow = useSelector(state => state.country.selectedCountry)
     const [isOpen, setIsOpen] = useState(false)
 
     const handleOpen = () => setIsOpen(true)
@@ -8,6 +10,7 @@ export const useModalButton = () => {
 
     return {
         isOpen,
+        disabled: !selectedRow,
         handleOpen,
         handleClose
     }

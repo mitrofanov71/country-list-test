@@ -1,4 +1,4 @@
-import { Table } from 'antd';
+import {Table} from 'antd';
 
 import './index.scss'
 import {useDispatch, useSelector} from "react-redux";
@@ -37,16 +37,16 @@ const List = () => {
                 columns={columns}
                 rowClassName={(record) => record.id === selectedRow && 'ant-table-row-selected'}
                 onRow={(record) => {
-                return {
-                    onClick: () => {
-                        if (selectedRow === record.id) {
-                            dispatch(resetSelectedCountry())
-                        } else {
-                            dispatch(setSelectedCountry(record.id))
-                        }
-                    },
-                };
-            }}/>
+                    return {
+                        onClick: () => {
+                            if (selectedRow === record.id) {
+                                dispatch(resetSelectedCountry())
+                            } else {
+                                dispatch(setSelectedCountry(record.id))
+                            }
+                        },
+                    };
+                }}/>
         </div>
     )
 }

@@ -11,13 +11,13 @@ const CountryList = () => {
     const loading = useSelector(state => state.country.loading)
 
     useEffect(() => {
-       dispatch(fetchCountry())
+        dispatch(fetchCountry())
     }, [dispatch])
 
     const handleCloseModal = () => dispatch(clearError())
 
     return (
-        <Layout style={{ minHeight: '100vh', padding: 10 }}>
+        <Layout style={{minHeight: '100vh', padding: 10}}>
             <Spin spinning={loading}>
                 <ListHeader/>
                 <List/>

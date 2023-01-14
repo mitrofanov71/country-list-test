@@ -6,7 +6,7 @@ import RemoveButton from "./RemoveButton";
 const ButtonsGroup = () => {
     return (
         <>
-            <Radio.Group >
+            <Radio.Group>
                 <AddButton/>
                 <ChangeButton/>
                 <RemoveButton/>
