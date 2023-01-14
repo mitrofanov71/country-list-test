@@ -1,4 +1,6 @@
-import {combineReducers} from "@reduxjs/toolkit";
-import {countryListReducer} from "./countryListReducer";
+import { combineReducers } from '@reduxjs/toolkit';
+import countryListReducer from './countryListReducer';
 
-export const rootReducer = combineReducers({country: countryListReducer})
+const rootReducer = combineReducers({ country: countryListReducer });
+
+export default rootReducer;
