@@ -17,5 +17,7 @@ module.exports = {
     'react',
   ],
   rules: {
+    'react/prop-types': 'off',
+    'default-param-last': 'off',
   },
 };

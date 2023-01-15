@@ -4,8 +4,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import List from './List';
 import ListHeader from './Header';
 import { fetchCountry } from '../../store/actions/countryListAsyncActions';
-import { clearError } from '../../store/actions/countryListActionCreators';
+import { clearError, fetchCountrySuccess } from '../../store/actions/countryListActionCreators';
 import { getErrorSelector, getLoadingSelector } from '../../store/selectors/countryListSelectors';
+import data from '../../mock/country-list.json';
+
+const DEBUG = true;
 
 function CountryList() {
   const dispatch = useDispatch();
@@ -13,7 +16,11 @@ function CountryList() {
   const loading = useSelector(getLoadingSelector);
 
   useEffect(() => {
-    dispatch(fetchCountry());
+    if (DEBUG) {
+      dispatch(fetchCountrySuccess(data));
+    } else {
+      dispatch(fetchCountry());
+    }
   }, [dispatch]);
 
   const handleCloseModal = () => dispatch(clearError());
