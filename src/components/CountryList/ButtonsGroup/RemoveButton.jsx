@@ -2,13 +2,14 @@ import React from 'react';
 import { Modal, Radio } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import useModalButton from '../../../utils/hooks/useModalButton';
-import { removeCountryAction } from '../../../store/actions/countryListActions';
+import { removeCountryAction } from '../../../store/actions/countryListAsyncActions';
+import { getSelectedCountrySelector } from '../../../store/selectors/countryListSelectors';
 
 function RemoveButton() {
   const {
     isOpen, disabled, handleOpen, handleClose,
   } = useModalButton();
-  const selectedRow = useSelector((state) => state.country.selectedCountry);
+  const selectedRow = useSelector(getSelectedCountrySelector);
   const dispatch = useDispatch();
 
   const handleRemove = () => {

@@ -1,8 +1,9 @@
 import { useState } from 'react';
 import { useSelector } from 'react-redux';
+import { getSelectedCountrySelector } from '../../store/selectors/countryListSelectors';
 
 const useModalButton = () => {
-  const selectedRow = useSelector((state) => state.country.selectedCountry);
+  const selectedRow = useSelector(getSelectedCountrySelector);
   const [isOpen, setIsOpen] = useState(false);
 
   const handleOpen = () => setIsOpen(true);

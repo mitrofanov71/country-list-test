@@ -1,14 +1,16 @@
+import React, { useEffect } from 'react';
 import { Layout, Modal, Spin } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
-import { useEffect } from 'react';
 import List from './List';
 import ListHeader from './Header';
-import { clearError, fetchCountry } from '../../store/actions/countryListActions';
+import { fetchCountry } from '../../store/actions/countryListAsyncActions';
+import { clearError } from '../../store/actions/countryListActionCreators';
+import { getErrorSelector, getLoadingSelector } from '../../store/selectors/countryListSelectors';
 
 function CountryList() {
   const dispatch = useDispatch();
-  const errorMessage = useSelector((state) => state.country.error);
-  const loading = useSelector((state) => state.country.loading);
+  const errorMessage = useSelector(getErrorSelector);
+  const loading = useSelector(getLoadingSelector);
 
   useEffect(() => {
     dispatch(fetchCountry());

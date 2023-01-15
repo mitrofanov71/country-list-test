@@ -1,9 +1,10 @@
+import React, { useMemo } from 'react';
 import { Table } from 'antd';
 
 import './index.scss';
 import { useDispatch, useSelector } from 'react-redux';
-import { useMemo } from 'react';
-import { resetSelectedCountry, setSelectedCountry } from '../../../store/actions/countryListActions';
+import { resetSelectedCountry, setSelectedCountry } from '../../../store/actions/countryListActionCreators';
+import { getCountryListSelector, getSelectedCountrySelector } from '../../../store/selectors/countryListSelectors';
 
 const columns = [
   {
@@ -21,8 +22,8 @@ const columns = [
 
 function List() {
   const dispatch = useDispatch();
-  const country = useSelector((state) => state.country.list);
-  const selectedRow = useSelector((state) => state.country.selectedCountry);
+  const country = useSelector(getCountryListSelector);
+  const selectedRow = useSelector(getSelectedCountrySelector);
 
   const countryForRender = useMemo(() => country.map((el) => ({ ...el, key: el.id })), [country]);
 

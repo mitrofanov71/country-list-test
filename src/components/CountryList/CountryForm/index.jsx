@@ -1,15 +1,17 @@
-import { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { Input, Button, InputNumber } from 'antd';
 
 import './index.scss';
 
 function CountryForm({ onSubmit, initialValue }) {
-  const [name, setName] = useState(initialValue.name ?? '');
-  const [citizens, setCitizens] = useState(initialValue.citizens ?? '');
+  const [name, setName] = useState('');
+  const [citizens, setCitizens] = useState('');
 
   useEffect(() => {
-    setName(initialValue.name);
-    setCitizens(initialValue.citizens);
+    if (initialValue?.name && initialValue?.citizens) {
+      setName(initialValue.name);
+      setCitizens(initialValue.citizens);
+    }
   }, [initialValue]);
 
   const handleChangeName = (e) => {
@@ -24,7 +26,7 @@ function CountryForm({ onSubmit, initialValue }) {
 
   return (
     <div className="country-form">
-      <Input placeholder="Название страны" value={name} onChange={handleChangeName} requaired />
+      <Input placeholder="Название страны" value={name} onChange={handleChangeName} />
       <InputNumber placeholder="Количество жителей" value={citizens} onChange={setCitizens} />
       <Button disabled={isSubmitButtonDisabled} onClick={handleSubmit} type="primary">Отправить</Button>
     </div>

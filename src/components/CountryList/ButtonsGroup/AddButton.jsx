@@ -3,7 +3,7 @@ import { Modal, Radio } from 'antd';
 import { useDispatch } from 'react-redux';
 import useModalButton from '../../../utils/hooks/useModalButton';
 import CountryForm from '../CountryForm';
-import { addCountryAction } from '../../../store/actions/countryListActions';
+import { addCountryAction } from '../../../store/actions/countryListAsyncActions';
 
 function AddButton() {
   const { isOpen, handleOpen, handleClose } = useModalButton();

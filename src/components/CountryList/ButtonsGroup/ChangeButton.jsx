@@ -3,14 +3,15 @@ import { Modal, Radio } from 'antd';
 import { useDispatch, useSelector } from 'react-redux';
 import useModalButton from '../../../utils/hooks/useModalButton';
 import CountryForm from '../CountryForm';
-import { changeCountryAction } from '../../../store/actions/countryListActions';
+import { changeCountryAction } from '../../../store/actions/countryListAsyncActions';
+import { getCountryListSelector, getSelectedCountrySelector } from '../../../store/selectors/countryListSelectors';
 
 function ChangeButton() {
   const {
     isOpen, disabled, handleOpen, handleClose,
   } = useModalButton();
-  const selectedRow = useSelector((state) => state.country.selectedCountry);
-  const countryList = useSelector((state) => state.country.list);
+  const selectedRow = useSelector(getSelectedCountrySelector);
+  const countryList = useSelector(getCountryListSelector);
   const dispatch = useDispatch();
 
   const initialValue = useMemo(() => {
