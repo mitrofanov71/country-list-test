@@ -41,7 +41,7 @@ export const addCountryAction = (data) => async (dispatch) => {
 export const changeCountryAction = (data) => async (dispatch) => {
   makeRequest(dispatch, async () => {
     const result = await changeCountry(data);
-    if (result.status === 201) {
+    if (result.status === 200) {
       dispatch(fetchCountry());
     } else {
       dispatch(showError('Что-то пошло не так!'));

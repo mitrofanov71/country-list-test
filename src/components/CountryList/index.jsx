@@ -8,7 +8,7 @@ import { clearError, fetchCountrySuccess } from '../../store/actions/countryList
 import { getErrorSelector, getLoadingSelector } from '../../store/selectors/countryListSelectors';
 import data from '../../mock/country-list.json';
 
-const DEBUG = true;
+const DEBUG = false;
 
 function CountryList() {
   const dispatch = useDispatch();
